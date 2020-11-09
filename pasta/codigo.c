@@ -1,21 +1,33 @@
 #include <stdio.h>
-
-
-int main (void) {
-  int a = 3;
-  int b = 6;
-  while (a <= b) {
-    if (a % 2 == 1) {
-      printf("a is %d\n", a);
+main() {
+int a,b,f,i,r,min,max,z;
+printf("Digite dois valores para ser calculado os numeros primos dentro do intervalo:\n");
+scanf("%d %d",&a,&b);
+if (a<b){
+    min=a; max=b;
     }
-    else {
-      printf("b is %d\n", b);
-      for (int i = 0; i < b - a ; i++) {
-        printf("a * i + b = %d\n", a * i + b);
-      }
+else {
+    min=b; max=a;
     }
-    a++;
-    b--;
-  }
-  return 0;
+i=2; z=0; f=0;
+printf("\nValores entre %d e %d:\n",min,max);
+while(min<=max) {
+    while(min>=i) {
+        r=min%i;
+    if (r==0)
+        z=z+1; i=i+1;
+    }
+    if (z==1){
+        f=f+1;  if (f==1)
+                    printf("(%d",min);
+            else if (f>1)
+                    printf(", %d",min);
+    }
+    min=min+1; i=2; z=0;
+    }
+if (f>0)
+    printf(")\n\n");
+else
+    printf("Sem valores nesse intervalo.\n\n");
+getchar();
 }

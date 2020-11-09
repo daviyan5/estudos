@@ -9,7 +9,7 @@ typedef struct{
 encomenda *obterEncomendas(int *qtEncomendas){
     encomenda *Eaux=NULL; //Criando um ponteiro do tipo encomenda para ser retornado no final
     FILE *bin;
-    bin = fopen("/home/davi/Documentos/arquivos encomendas/encomendas.bin","r+"); //Abrindo o arquivo
+    bin = fopen("/encomendas.bin","r+"); //Abrindo o arquivo
     if(bin==NULL){   //Verificando se há algo no arquivo
         printf("Falha na abertura!\n");
         exit(1);
@@ -59,7 +59,7 @@ void entregarEncomenda(int id_encomenda, encomenda *encomendas, int *qtEncomenda
 
 void finalizarEntregas(encomenda *encomendas, int qtEncomendas){
     FILE *bin;
-    bin = fopen("/home/davi/Documentos/arquivos encomendas/encomendas.bin","w+"); //Abro o arquivo como escrita, ja "passando por cima" do que tinha antes
+    bin = fopen("/encomendas.bin","w+"); //Abro o arquivo como escrita, ja "passando por cima" do que tinha antes
     if(bin==NULL){
         printf("Falha na abertura!\n");
         exit(1);
@@ -100,3 +100,4 @@ int main(){
     free(Enc);
     return 0;
 }
+

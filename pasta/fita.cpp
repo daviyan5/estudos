@@ -2,34 +2,37 @@
 using namespace std;
 
 int main(){
-    int n,m,zeros=0,zeros2=0;
+    int n;
     cin >> n;
-    int vetor[n+2];
-    vetor[0]=-1;
-    vetor[n+1]=-1;
-    for (int i=1;i<=n;i++){
+    int zer[n],um[n],m;
+    unsigned int dist=n+1;
+    for (int i=1; i<=n; i++){
         cin >> m;
-        vetor[i]=m;
-    }
-    for(int i=1;i<=n;i++){
-        if (vetor[i]==-1){
-            vetor[i]=vetor[i-1]+1;
-            if(vetor[i-1]==-1) vetor[i]++;
+        if (m==-1) {
+            um[i]=i;
+            zer[i]=0;
         }
-        else zeros++;
+        else if(m==0){
+            zer[i]=i;
+            um[i]=0;
+        }
     }
-    for(int i=1;i<=n;i++){
-        if (vetor[n]==0 or vetor[n+2-i]!=-1){
-            if(vetor[n+1-i]>vetor[n+2-i]+1 or zeros2==zeros){
-                vetor[n+1-i]=vetor[n+2-i]+1;
+    for(int i=1; i<=n; i++){
+        if(zer[i]==i){
+            dist=0;
+        }
+        else{
+            for(int j=1;j<=n;j++){
+                if (zer[j]!=0){
+                    if ((unsigned)um[i]-zer[j]<dist){
+                        dist=um[i]-zer[j];
+                    }
+                }
             }
-            if (vetor[n+1-i]==0) zeros2++;
+
         }
-        if (vetor[n+1-i]>9) vetor[n+1-i]=9;
+        cout << dist;
+        return 0;
+
     }
-    for (int i = 1; i <= n; i++)
-    {
-        cout << vetor[i]<< " ";
-    }
-    return 0;
 }
