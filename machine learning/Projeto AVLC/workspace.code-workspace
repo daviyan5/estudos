@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "GITProjeto"
+		},
+		{
+			"name": "MachineLearningProject",
+			"path": "GITProjeto/MachineLearningProject"
+		}
+	],
+	"settings": {
+		"jupyter.jupyterServerType": "local"
+	}
+}
