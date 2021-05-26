@@ -14,7 +14,7 @@ int sz[MX], root[MX];
 void build(int n){
     for(int i=0;i<n;i++){
         sz[i]=1;
-        root[i]=1;
+        root[i]=i;
     }
 }
 

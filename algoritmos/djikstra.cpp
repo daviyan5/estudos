@@ -19,16 +19,16 @@ void djikstra(int source,int n){
     for(int i = 0; i < n; i++) dist[i] = inf;
     dist[source] = 0;
     priority_queue<ii, vector<ii>, greater<ii>> pq;
-    pq.emplace(source, 0);
+    pq.emplace(0, source);
     while (!pq.empty()){
-        int d = pq.top().second, u = pq.top().first;
+        int d = pq.top().first, u = pq.top().second;
         pq.pop();
         if (d > dist[u]) continue;
         for(auto e : adj[u]){
             int v = e.first, w = e.second;
             if (dist[u] + w < dist[v]){
                 dist[v] = dist[u] + w;
-                pq.emplace(v,dist[v]);
+                pq.emplace(dist[v],v);
             }
         }
     }

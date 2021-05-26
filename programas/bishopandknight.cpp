@@ -7,7 +7,7 @@ pair<int,char> sol;
 //Checamos se o rei inimigo pode se mover para alguma casa nao atacada
 
 //Passo 1 : Achar as casas possiveis e fazer um movimento
-// Criterios : Uma peça não pode se mover pra fora do tabuleiro
+// Criterios : Uma peça não pode se mover pra fora do iro
 //             Uma peça não pode se mover para uma casa já ocupada
 //             No caso do Rei e Bispo, a peça nao pode se mover para uma casa que outra peça estiver no caminho
 //             O rei não pode se mover para uma casa atacada pelo rei negro
