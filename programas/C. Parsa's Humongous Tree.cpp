@@ -9,9 +9,10 @@ using namespace std;
 #define x first
 #define y second
 #define all(cc) (cc).begin(),(cc).end()
-typedef pair<int,int> ii;
+
 typedef long long LL;
 typedef long double LD;
+typedef pair<LL,LL> ii;
 const int inf = 0x3f3f3f3f;
 const int MX=1e6 + 20;
 int biton(int N, int pos) {return N = N | (1 << pos);}
@@ -22,13 +23,15 @@ vector<ii> range;
 vector<vector<int>> adjList;
 int n;
 
-int solve(int pos,int in){
+LL solve(int pos,int in, int pai){
     if(dp[pos][in] != -1) return dp[pos][in];
     else{
         dp[pos][in] = 0;
         LL val = !in? range[pos].x : range[pos].y;
         for(auto u:adjList[pos]){
-            dp[pos][in] += max(solve(u,0) + abs(val - range[u].x),solve(u,1) + abs(val - range[u].y));
+            if(u != pai){
+                dp[pos][in] += max(solve(u,0,pos) + abs(val - range[u].x),solve(u,1,pos) + abs(val - range[u].y));
+            }
         }
         return dp[pos][in];
     }
@@ -49,12 +52,12 @@ int main(){
         forc(i,n-1){
             int u,v; cin  >> u >> v;
             adjList[u-1].push_back(v-1);
+            adjList[v-1].push_back(u-1);
         }
-        LL ans1 = 0;
-        LL ans2 = 0;
+        LL ans1 = 0; LL ans2 = 0;
         for(auto u:adjList[0]){
-            ans1 += max(solve(u,0) + abs(range[0].x - range[u].x),solve(u,1) + abs(range[0].x - range[u].y));
-            ans2 += max(solve(u,0) + abs(range[0].y - range[u].x),solve(u,1) + abs(range[0].y - range[u].y));
+            ans1 += max(solve(u,0,0) + abs(range[0].x - range[u].x),solve(u,1,0) + abs(range[0].x - range[u].y));
+            ans2 += max(solve(u,0,0) + abs(range[0].y - range[u].x),solve(u,1,0) + abs(range[0].y - range[u].y));
         }
         cout << max(ans1,ans2) << endl;
     }
