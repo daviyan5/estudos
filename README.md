@@ -1,2 +1,2 @@
 # Meus programas de treino.
-Codigos em C/C++ que usei
+Codigos em Python/C/C++
