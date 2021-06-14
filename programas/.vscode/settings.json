@@ -16,6 +16,7 @@
         "iosfwd": "cpp",
         "ostream": "cpp",
         "bit": "cpp",
-        "cmath": "cpp"
+        "cmath": "cpp",
+        "numeric": "cpp"
     }
 }
