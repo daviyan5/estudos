@@ -78,9 +78,9 @@ int main(){
             peso[u][v] = w;
             peso[v][u] = w;
         }
-        for(int source = 0;source<V;source++){
-            BellmanFord(source,V,E);
-        }
+        int source; cin >> source;
+        BellmanFord(source,V,E);
+        
     }
     return 0;
 }
