@@ -1,85 +1,88 @@
 #include <iostream>
 using namespace std;
-//#define endl '\n'
-#define forc(i, n) for (int i = 0; i < int(n); i++) //for crescente
-#define ford(i, n) for (int i = int(n-1); i >= 0; i--) //for decrescente
+
 typedef long long LL;
 typedef long double LD;
-int n;
-int cont=0;
 
-void merge(int *&v,int l,int r){
+int n;
+int cont = 0;
+
+void merge(int *&v, int l, int r) {
     cout << "Entrou merge de " << l << " ate " << r << endl;
     int aux[n];
-    int m=(l+r)/2;
-    int i=l,j=m;
+    int m = (l + r) / 2;
+    int i = l, j = m;
     cout << "v antes" << endl;
-    for(int i=0;i<n;i++){
+    for (int i = 0; i < n; i++) {
         cout << v[i] << " ";
     }
     cout << endl;
-    for(int k=l;k<r;k++){
-        if(j==r){
+    for (int k = l; k < r; k++) {
+        if (j == r) {
             cout << "Entrou 1 i: " << i << " v[i] " << v[i] << endl;
-            aux[k]=v[i];
+            aux[k] = v[i];
             i++;
         }
-        else if(i==m){
+        else if (i == m) {
             cout << "Entrou 2 j: " << j << " v[j] " << v[j] << endl;
-            aux[k]=v[j];
+            aux[k] = v[j];
             j++;
         }
-        else if(v[i]<=v[j]){
+        else if (v[i] <= v[j]) {
             cout << "Entrou 3 i: " << i << " v[i] " << v[i] << endl;
-            aux[k]=v[i];
+            aux[k] = v[i];
             i++;
         }
-        else{
+        else {
             cout << "Entrou 4 j: " << j << " v[j] " << v[j] << endl;
-            aux[k]=v[j];
+            aux[k] = v[j];
             j++;
         }
     }
-    for(int k=l;k<r;k++){
-        v[k]=aux[k];
+    for (int k = l; k < r; k++) {
+        v[k] = aux[k];
     }
     cout << "v depois" << endl;
-    for(int i=0;i<n;i++){
+    for (int i = 0; i < n; i++) {
         cout << v[i] << " ";
     }
     cout << endl;
-    cout<< endl;
-    cout <<"contador: "<<cont << endl;
-    cont ++;
+    cout << endl;
+    cout << "contador: " << cont << endl;
+    cont++;
 }
-void msort(int *&v,int l,int r){
-    if(r-l>=2){
-        int m=(l+r)/2;
-        msort(v,l,m);
-        msort(v,m,r);
-        merge(v,l,r);
+
+void msort(int *&v, int l, int r) {
+    if (r - l >= 2) {
+        int m = (l + r) / 2;
+        msort(v, l, m);
+        msort(v, m, r);
+        merge(v, l, r);
     }
 }
 
-int main(){
-    ios::sync_with_stdio(0); cin.tie(nullptr);
-    int t; cin >> t;
-    while(t--){
+int main() {
+    ios::sync_with_stdio(0);
+    cin.tie(nullptr);
+
+    int t;
+    cin >> t;
+    while (t--) {
         cont = 1;
         cout << "Digite a quantidade de valores" << endl;
         cin >> n;
-        int *v=(int*)malloc(n*sizeof(int));
-        forc(i,n){
+        int *v = (int *)malloc(n * sizeof(int));
+        for (int i = 0; i < n; i++) {
             cin >> v[i];
         }
         cout << "Vetor desordenado: " << endl;
-        forc(i,n){
+        for (int i = 0; i < n; i++) {
             cout << v[i] << " ";
         }
         cout << endl;
-        msort(v,0,n);
+        msort(v, 0, n);
         cout << "Vetor ordenado: " << endl;
-        forc(i,n){
+        for (int i = 0; i < n; i++) {
             cout << v[i] << " ";
         }
         cout << endl;

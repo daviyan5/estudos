@@ -1,5 +1,8 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+#include <climits>
 using namespace std;
+
 class Heap{
 public:
     Heap(int n){
@@ -25,26 +28,34 @@ public:
 private:
     int heapsize;
     vector<int> h;
-
 };
+
 void heapsort(vector<int> &v){
     Heap pq(v.size());
-    
+    // Implement heap sort logic here
 }
+
 void printa(vector<int> &v){
     for(auto &u:v){
         cout << u << " ";
     }
     cout << endl;
 }
+
 int main(){
     vector<int> v;
-    int n; cin >> n;
-    for(int i=0;i<n;i++){
-        int a; cin >> a;
+    int n;
+    cin >> n;
+
+    for(int i = 0; i < n; i++){
+        int a;
+        cin >> a;
         v.push_back(a);
     }
+
     printa(v);
     heapsort(v);
     printa(v);
+
+    return 0;
 }

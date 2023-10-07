@@ -1,10 +1,7 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
 using namespace std;
 
-#define forc(i, n) for (int i = 0; i < int(n); i++) //for crescente
-#define ford(i, n) for (int i = int(n-1); i >= 0; i--) //for decrescente
-#define mp(a, b) make_pair(a, b)
-#define endl '\n'
 typedef pair<int,int> ii;
 typedef long long LL;
 typedef long double LD;
@@ -13,7 +10,7 @@ const int MX = 1e5 + 10;
 
 vector<vector<int>> dist;
 
-void floyd(int n,int m){
+void floyd(int n, int m){
     dist.clear();
     dist.resize(n);
     for(int i = 0; i < n; i++){
@@ -24,7 +21,8 @@ void floyd(int n,int m){
         }
     }
     for(int i = 0; i < m; i++) {
-        int u, v, w; cin >> u >> v >> w;
+        int u, v, w;
+        cin >> u >> v >> w;
         dist[u][v] = min(dist[u][v], w);
         dist[v][u] = min(dist[v][u], w);
     }
@@ -35,8 +33,8 @@ void floyd(int n,int m){
             }
         }
     }
-    forc(i,n){
-        forc(j,n){
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < n; j++){
             cout << "Distancia de " << i << " ate " << j << " é: " << dist[i][j] << endl;
         }
         cout << endl;
@@ -44,12 +42,16 @@ void floyd(int n,int m){
 }
 
 int main(){
-    ios::sync_with_stdio(0); cin.tie(nullptr);
-    int t; cin >> t;
+    ios::sync_with_stdio(0);
+    cin.tie(nullptr);
+
+    int t;
+    cin >> t;
     while(t--){
-        int n,m;
+        int n, m;
         cin >> n >> m;
-        floyd(n,m);
+        floyd(n, m);
     }
+
     return 0;
 }
