@@ -46,7 +46,7 @@
 
 23. **Ternary Search:** Algoritmo de busca semelhante ao binary search, mas divide o espaço de busca em três partes iguais.
 
-24. **K-Smallest Element:** Algoritmo para encontrar o k-ésimo menor elemento em uma lista não ordenada.
+24. **Quickselect:** Algoritmo para encontrar o k-ésimo menor elemento em uma lista não ordenada.
 
 25. **Activity Selection:** Problema de otimização que envolve selecionar o maior número possível de atividades não sobrepostas.
 
@@ -103,3 +103,5 @@
 51. **Expectimax:** Algoritmo para encontrar a melhor jogada em um jogo de dois jogadores com incerteza.
 
 52. **Monte Carlo Tree Search:** Algoritmo para encontrar a melhor jogada em um jogo de dois jogadores.
+
+53. **Trie:** Estrutura de dados que armazena um conjunto de strings.
