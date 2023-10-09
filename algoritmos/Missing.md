@@ -38,7 +38,7 @@
 
 19. **Delaunay Triangulation:** Triangulação de um conjunto de pontos que maximiza o menor ângulo interno dos triângulos.
 
-20. **A* Search:** Algoritmo de busca de caminho em grafos que utiliza uma heurística para priorizar os nós a serem explorados.
+20. **A\* Search:** Algoritmo de busca de caminho em grafos que utiliza uma heurística para priorizar os nós a serem explorados.
 
 21. **Suffix Tree:** Estrutura de dados que armazena todos os sufixos de uma string, facilitando a busca de padrões.
 
@@ -85,3 +85,21 @@
 42. **B-Tree:** Estrutura de dados de árvore balanceada, especialmente adequada para armazenamento em disco.
 
 43. **Fenwick Tree (Binary Indexed Tree):** Estrutura de dados para eficientemente realizar operações de soma em intervalos de uma lista.
+
+44. **D\*:** Algoritmo para encontrar o caminho mais curto em um grafo com arestas que podem ter seu custo alterado.
+
+45. **Alpha-Beta Pruning:** Algoritmo para reduzir o número de nós a serem explorados em uma árvore de busca.
+
+46. **Minimax:** Algoritmo para minimizar a perda máxima em um jogo de dois jogadores.
+
+47. **PRM (Probabilistic Roadmap):** Algoritmo para encontrar o caminho mais curto em um espaço multidimensional.
+
+48. **HyperLogLog:** Estimativa a cardinalidade de um conjunto de elementos.
+
+49. **Bloom Filter:** Estrutura de dados probabilística que verifica se um elemento está em um conjunto.
+
+50. **Skip List:** Estrutura de dados probabilística que permite busca, inserção e remoção em tempo O(log n).
+
+51. **Expectimax:** Algoritmo para encontrar a melhor jogada em um jogo de dois jogadores com incerteza.
+
+52. **Monte Carlo Tree Search:** Algoritmo para encontrar a melhor jogada em um jogo de dois jogadores.
