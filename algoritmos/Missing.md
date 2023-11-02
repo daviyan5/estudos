@@ -1,6 +1,5 @@
-### GERADO PELO CHAT-GPT
 
-1. **BFS (Breadth-First Search):** Algoritmo de busca em grafos que explora todos os vértices vizinhos de um vértice antes de se mover para os vizinhos do próximo nível.
+1. ~~**BFS (Breadth-First Search):** Algoritmo de busca em grafos que explora todos os vértices vizinhos de um vértice antes de se mover para os vizinhos do próximo nível.~~
 
 2. **BST (Binary Search Tree):** Uma estrutura de dados de árvore onde cada nó tem no máximo dois filhos. Os nós à esquerda contêm valores menores e os nós à direita contêm valores maiores.
 
