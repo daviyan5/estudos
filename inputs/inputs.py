@@ -36,16 +36,16 @@ def ordered_array():
 
 def kd_tree():
     # Número de dimensões
-    k = 3
+    k = 9
 
     # Número de pontos
-    n = 100
+    n = 10000
 
     # Pontos
     points = np.random.uniform(-n // 2, n // 2, (n, k))
 
     # Pontos de consulta
-    q = random.randint(n // 2, n * 2)
+    q = random.randint(n * 0.9, n * 1.1)
     queries = np.random.uniform(-n // 2, n // 2, (q, k))
 
     print("{} {}".format(k, n), file=open(f"./inputs/kd-tree.in", "w"))

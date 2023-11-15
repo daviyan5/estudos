@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <math.h>
 #include <string.h>
+#include <time.h>
 
 #define MAX_K       10              // Máximo de dimensões
 #define MAX_N       1000000         // Máximo de pontos
@@ -56,8 +57,11 @@ KDNode *build_kdtree(int k, int n, double **points){
         node->right = recursive_build(m + 1, j, (d + 1) % k);
         return node;
     }
-
+    clock_t start = clock();
     KDNode *root = recursive_build(0, n, 0);
+    clock_t end = clock();
+    double time_spent = (double) (end - start) / CLOCKS_PER_SEC;
+    printf("Tempo de construção da árvore: %.2E segundos.\n", time_spent);
     for(int i = 0; i < n; i++){
         free(copy_points[i]);
     }
@@ -182,7 +186,7 @@ int main(){
     int m;
     err = scanf("%d", &m);
     m = m % MAX_M;
-    printf("%d consultas.\n", m);
+    printf("%d consultas.\n\n", m);
     // Leitura das consultas
     for(int i = 0; i < m; i++){
         double *point = (double *) malloc(k * sizeof(double));
@@ -194,7 +198,9 @@ int main(){
             }
         }
         KDNode *nearest = NULL;
+        clock_t start = clock();
         nearest_neighbor(k, root, point, &nearest);
+        clock_t end = clock();
 
         char *string_i;                     // Adicionar zeros à esquerda para que tenha ceil(log_11(m)) dígitos
         char *string_i_nearest;             // Adicionar zeros à esquerda para que tenha ceil(log_11(n)) dígitos
@@ -208,8 +214,15 @@ int main(){
         string_point    = point_to_string(k, point);
         string_nearest  = point_to_string(k, nearest->point);
 
-        printf("Para a %s-ésima consulta ->\n\t%s ==> Index %s | %s | d: %07.2lf.\n", 
-                string_i, string_point, string_i_nearest, string_nearest, min_d);
+        double time_spent = (double) (end - start) / CLOCKS_PER_SEC;
+        printf("Para a %s-ésima consulta ->\n", string_i);
+
+        printf("\tDistância: \t\t\t\t\t --> %.2lf\n", min_d);
+        printf("\tIndex do ponto mais próximo  --> %s\n", string_i_nearest);
+        printf("\tPonto de consulta  \t\t\t --> %s\n", string_point);
+        printf("\tPonto mais próximo \t\t\t --> %s\n", string_nearest);
+        printf("\tTempo de execução \t\t\t --> %.2E segundos.\n\n", time_spent);
+
         // Brute-check
         free(point);
         free(string_i);
