@@ -3,3 +3,5 @@ choose-today.py
 *.o
 *.in
 *.out
+*.png
+testes/

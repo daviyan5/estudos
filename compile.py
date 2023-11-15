@@ -19,24 +19,31 @@ def find_file(filename):
 
 def execute_c(file_path, filename):
     filename = os.path.splitext(filename)[0]
-    subprocess.call(['gcc', '-o', os.path.splitext(file_path)[0], '-O3', file_path])
-    subprocess.call([os.path.splitext(file_path)[0]], stdin=open(f'./inputs/{filename}.in', 'r'))
+    subprocess.call(['gcc', '-o', os.path.splitext(file_path)[0], '-O3', file_path, '-lm'])
+    subprocess.call([os.path.splitext(file_path)[0]], 
+                    stdin=open(f'./inputs/{filename}.in', 'r'),
+                    stdout=open(f'./outputs/{filename}.out', 'w'))
     subprocess.call(['rm', os.path.splitext(file_path)[0]])
 
 def execute_cpp(file_path, filename):
     filename = os.path.splitext(filename)[0]
-    subprocess.call(['g++', '-o', os.path.splitext(file_path)[0], '-O3', file_path])
-    subprocess.call([os.path.splitext(file_path)[0]], stdin=open(f'./inputs/{filename}.in', 'r'))
+    subprocess.call(['g++', '-o', os.path.splitext(file_path)[0], '-O3', file_path, '-lm'])
+    subprocess.call([os.path.splitext(file_path)[0]], 
+                    stdin=open(f'./inputs/{filename}.in', 'r'),
+                    stdout=open(f'./outputs/{filename}.out', 'w'))
     subprocess.call(['rm', os.path.splitext(file_path)[0]])
 
 def execute_py(file_path, filename):
     filename = os.path.splitext(filename)[0]
-    subprocess.call(['python', file_path], stdin=open(f'./inputs/{filename}.in', 'r'))
+    subprocess.call(['python', file_path], 
+                    stdin=open(f'./inputs/{filename}.in', 'r'),
+                    stdout=open(f'./outputs/{filename}.out', 'w'))
 
 def execute_jl(file_path, filename):
     filename = os.path.splitext(filename)[0]
-    subprocess.call(['julia', '-O3', file_path], stdin=open(f'./inputs/{filename}.in', 'r'))
-
+    subprocess.call(['julia', '-O3', file_path], 
+                    stdin=open(f'./inputs/{filename}.in', 'r'),
+                    stdout=open(f'./outputs/{filename}.out', 'w'))
 
 if __name__ == '__main__':
     if len(sys.argv) != 2:
