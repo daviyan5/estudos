@@ -36,7 +36,7 @@ def ordered_array():
 
 def kd_tree():
     # Número de dimensões
-    k = 9
+    k = 3
 
     # Número de pontos
     n = 10000

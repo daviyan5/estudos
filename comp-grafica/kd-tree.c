@@ -215,15 +215,27 @@ int main(){
         string_nearest  = point_to_string(k, nearest->point);
 
         double time_spent = (double) (end - start) / CLOCKS_PER_SEC;
-        printf("Para a %s-ésima consulta ->\n", string_i);
+        printf("Para a %s-ésima consulta ============\n", string_i);
+        char *aux;
+        aux = (char *) malloc(128 * sizeof(char));
+        aux[0] = '\0';
+        
+        strcpy(aux, "Distância:");
+        printf("\t%-32s --> %.2lf\n", aux, min_d);
 
-        printf("\tDistância: \t\t\t\t\t --> %.2lf\n", min_d);
-        printf("\tIndex do ponto mais próximo  --> %s\n", string_i_nearest);
-        printf("\tPonto de consulta  \t\t\t --> %s\n", string_point);
-        printf("\tPonto mais próximo \t\t\t --> %s\n", string_nearest);
-        printf("\tTempo de execução \t\t\t --> %.2E segundos.\n\n", time_spent);
+        strcpy(aux, "Índice do ponto mais próximo:");
+        printf("\t%-32s  --> %s\n", aux, string_i_nearest);
 
-        // Brute-check
+        strcpy(aux, "Ponto consultado:");
+        printf("\t%-32s--> %s\n", aux, string_point);
+        
+        strcpy(aux, "Ponto mais próximo:");
+        printf("\t%-32s --> %s\n", aux, string_nearest);
+        
+        strcpy(aux, "Tempo de busca:");
+        printf("\t%-32s--> %.2E segundos.\n\n", aux, time_spent);
+        
+        free(aux);
         free(point);
         free(string_i);
         free(string_point);
